@@ -243,11 +243,11 @@ function reverseWordsSentence(sentence) {
 
 function reverseWordS(sentence) {
   let arr = sentence.split(" ");
-  let resultArr = "";
+  let result = "";
   for (let i = arr.length - 1; i >= 0; i--) {
-    resultArr = resultArr + arr[i] + " ";
+    result = result + arr[i] + " ";
   }
-  console.log(resultArr);
+  console.log(result);
 }
 // console.log(reverseWordS(sentence));
 
@@ -297,3 +297,77 @@ function isPalindrome(str) {
 // console.log(isPalindrome("jisbhgsh"));
 
 //----------------------------------------------------------------------------------------
+//Remove duplicate characters from string
+
+function removeDuplicateChar(str) {
+  let set = new Set([...str]);
+  let result = "";
+  for (let char of set) {
+    result = result + char;
+  }
+  return result;
+}
+// console.log(removeDuplicateChar("saurabhkumar"));
+
+function removeDuplicateChar2(str) {
+  let obj = {};
+  for (let char of str) {
+    if (obj[char]) {
+      obj[char] = obj[char] + 1;
+    } else {
+      obj[char] = 1;
+    }
+  }
+  let result = "";
+  for (let key in obj) {
+    result = result + key;
+  }
+  return result;
+}
+
+// console.log(removeDuplicateChar2("saurabhkumar"));
+
+//-----------------------------------------------------------------------------------------
+// Maximum occuring character in given string
+
+function maximumCharacter(str) {
+  let obj = {};
+  let char = "";
+  let max = 0;
+  for (let char of str) {
+    if (obj[char]) {
+      obj[char] = obj[char] + 1;
+    } else {
+      obj[char] = 1;
+    }
+  }
+  for (let key in obj) {
+    if (max < obj[key]) {
+      max = obj[key];
+      char = key;
+    }
+  }
+
+  console.log("Maximum occured character is", char, max);
+  return char;
+}
+
+// console.log(maximumCharacter("saurabhkumar"));
+
+//---------------------------------------------------------------------------------
+//Remove given characters from string
+
+function removeCharFromSring(string, char) {
+  let strArr = string.split("");
+  let result = "";
+  for (let j = 0; j < strArr.length; j++) {
+    if (strArr[j] != char) {
+      result = result + strArr[j];
+    }
+  }
+  return result;
+}
+
+// console.log(removeCharFromSring("saurabh", "a"));
+
+//----------------------------------------------------------------------------------
